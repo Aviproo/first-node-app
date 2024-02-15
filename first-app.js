@@ -5,10 +5,12 @@ const express = require("express");
 const app = express();
 const adminroutes = require("./routes/admin");
 const shoproute = require("./routes/shop");
+const login = require("./routes/login");
 app.use(bodyparser.urlencoded({ extended: false }));
 
 app.use("/admin", adminroutes);
 app.use(shoproute);
+app.use(login);
 app.use((req, res, next) => {
   res.status(404).send("<h1>No page found</h1>");
 });
